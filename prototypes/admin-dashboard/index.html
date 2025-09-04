@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Hypnotherapy Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .sidebar {
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-100%);
+        }
+
+        .main-content {
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar fixed left-0 top-0 h-full w-64 bg-white shadow-lg z-50">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-cogs text-2xl text-green-600"></i>
+                    <h1 class="text-xl font-bold text-gray-800">Admin Portal</h1>
+                </div>
+                <button id="closeSidebar" class="lg:hidden text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="#dashboard"
+                    class="nav-link flex items-center space-x-3 p-3 rounded-lg bg-green-100 text-green-700">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#therapists"
+                    class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Therapists</span>
+                </a>
+                <a href="#analytics"
+                    class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#compliance"
+                    class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Compliance</span>
+                </a>
+                <a href="#settings"
+                    class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="flex items-center space-x-3 p-3">
+                    <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user-shield text-green-600"></i>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-800">Admin User</div>
+                        <div class="text-sm text-gray-500">System Administrator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-content ml-64 min-h-screen">
+        <!-- Top Navigation -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center space-x-4">
+                    <button id="openSidebar" class="lg:hidden text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="pageTitle" class="text-2xl font-bold text-gray-800">Admin Dashboard</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-bell"></i>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user-shield text-green-600"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section p-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">Active Therapists</p>
+                            <p class="text-2xl font-bold text-gray-800">24</p>
+                            <p class="text-sm text-green-600">+3 this month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-user-tie text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">Total Clients</p>
+                            <p class="text-2xl font-bold text-gray-800">156</p>
+                            <p class="text-sm text-blue-600">+12 this week</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-blue-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">Monthly Revenue</p>
+                            <p class="text-2xl font-bold text-gray-800">$45,250</p>
+                            <p class="text-sm text-purple-600">+18% vs last month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-dollar-sign text-purple-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">System Health</p>
+                            <p class="text-2xl font-bold text-gray-800">99.9%</p>
+                            <p class="text-sm text-green-600">All systems operational</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-server text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                            <div class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-plus text-blue-600 text-sm"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-800">New therapist registered</p>
+                                <p class="text-sm text-gray-500">Dr. Emily Chen joined the platform</p>
+                            </div>
+                            <span class="text-xs text-gray-400">2m ago</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3 p-3">
+                            <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check text-green-600 text-sm"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-800">Compliance audit completed</p>
+                                <p class="text-sm text-gray-500">HIPAA compliance check passed</p>
+                            </div>
+                            <span class="text-xs text-gray-400">1h ago</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3 p-3">
+                            <div class="w-8 h-8 bg-yellow-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-exclamation text-yellow-600 text-sm"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-800">System maintenance scheduled</p>
+                                <p class="text-sm text-gray-500">Scheduled for tomorrow at 2 AM</p>
+                            </div>
+                            <span class="text-xs text-gray-400">3h ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="p-4 bg-green-100 rounded-lg text-center hover:bg-green-200 transition-colors">
+                            <i class="fas fa-user-plus text-2xl text-green-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Add Therapist</p>
+                        </button>
+                        <button class="p-4 bg-blue-100 rounded-lg text-center hover:bg-blue-200 transition-colors">
+                            <i class="fas fa-chart-bar text-2xl text-blue-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">View Reports</p>
+                        </button>
+                        <button class="p-4 bg-purple-100 rounded-lg text-center hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-shield-alt text-2xl text-purple-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Security Check</p>
+                        </button>
+                        <button class="p-4 bg-yellow-100 rounded-lg text-center hover:bg-yellow-200 transition-colors">
+                            <i class="fas fa-cog text-2xl text-yellow-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">System Settings</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Therapists Section -->
+        <section id="therapists" class="section p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Therapist Management</h2>
+                    <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                        <i class="fas fa-plus mr-2"></i>Add Therapist
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-4 card-hover">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-md text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Dr. Sarah Smith</h3>
+                                <p class="text-sm text-gray-500">Active Therapist</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 mb-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Clients:</span>
+                                <span class="font-semibold">24</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Rating:</span>
+                                <span class="text-yellow-600 font-semibold">4.8/5</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Revenue:</span>
+                                <span class="text-green-600 font-semibold">$8,250</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button
+                                class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                View Profile
+                            </button>
+                            <button
+                                class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4 card-hover">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-md text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Dr. Emily Chen</h3>
+                                <p class="text-sm text-gray-500">Pending Review</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 mb-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Status:</span>
+                                <span class="text-yellow-600 font-semibold">Pending</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Documents:</span>
+                                <span class="text-green-600 font-semibold">✓ Complete</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button
+                                class="flex-1 bg-yellow-600 text-white py-2 rounded-lg hover:bg-yellow-700 transition-colors">
+                                Review
+                            </button>
+                            <button
+                                class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="section p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Analytics Dashboard</h2>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Revenue Analytics</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-gray-600">This Month</span>
+                                    <span class="font-semibold text-green-600">$45,250</span>
+                                </div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-gray-600">Last Month</span>
+                                    <span class="font-semibold">$38,420</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-600">Growth</span>
+                                    <span class="text-green-600 font-semibold">+18%</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-3">Top Performing Therapists</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Dr. Sarah Smith</span>
+                                        <span class="text-sm font-semibold">$8,250</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Dr. Mike Johnson</span>
+                                        <span class="text-sm font-semibold">$7,180</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Dr. Lisa Chen</span>
+                                        <span class="text-sm font-semibold">$6,920</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Platform Metrics</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-3">Client Growth</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Total Clients</span>
+                                        <span class="text-sm font-semibold">156</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">New This Month</span>
+                                        <span class="text-sm font-semibold text-green-600">+23</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Retention Rate</span>
+                                        <span class="text-sm font-semibold text-blue-600">89%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-3">Session Statistics</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Total Sessions</span>
+                                        <span class="text-sm font-semibold">1,234</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">This Month</span>
+                                        <span class="text-sm font-semibold">156</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-600">Avg Rating</span>
+                                        <span class="text-sm font-semibold text-yellow-600">4.7/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance Section -->
+        <section id="compliance" class="section p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Compliance Monitoring</h2>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Compliance Status</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-check-circle text-green-600"></i>
+                                    <span class="font-semibold text-gray-800">HIPAA Compliance</span>
+                                </div>
+                                <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-sm">100%</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-check-circle text-green-600"></i>
+                                    <span class="font-semibold text-gray-800">GDPR Compliance</span>
+                                </div>
+                                <span class="bg-green-200 text-green-800 px-2 py-1 rounded text-sm">98%</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-exclamation-triangle text-yellow-600"></i>
+                                    <span class="font-semibold text-gray-800">SOC 2 Audit</span>
+                                </div>
+                                <span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded text-sm">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Security Alerts</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <h4 class="font-semibold text-gray-800">System Security</h4>
+                                <p class="text-sm text-gray-600">All security systems operational</p>
+                                <p class="text-xs text-gray-400">2 hours ago</p>
+                            </div>
+
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <h4 class="font-semibold text-gray-800">Data Backup</h4>
+                                <p class="text-sm text-gray-600">Daily backup completed successfully</p>
+                                <p class="text-xs text-gray-400">6 hours ago</p>
+                            </div>
+
+                            <div class="border-l-4 border-yellow-500 pl-4">
+                                <h4 class="font-semibold text-gray-800">Access Review</h4>
+                                <p class="text-sm text-gray-600">Monthly access review due in 3 days</p>
+                                <p class="text-xs text-gray-400">1 day ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">System Settings</h2>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Branding Settings</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Company Logo</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                    <i class="fas fa-image text-3xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm text-gray-500">Click to upload logo</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Primary Color</label>
+                                <input type="color" value="#667eea"
+                                    class="w-full h-10 rounded-lg border border-gray-300">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                                <input type="text" value="HypnoTherapy Platform"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Security Settings</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Two-Factor Authentication</h4>
+                                    <p class="text-sm text-gray-600">Require 2FA for all users</p>
+                                </div>
+                                <div class="w-12 h-6 bg-green-500 rounded-full relative">
+                                    <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Session Timeout</h4>
+                                    <p class="text-sm text-gray-600">Auto-logout after inactivity</p>
+                                </div>
+                                <div class="w-12 h-6 bg-gray-300 rounded-full relative">
+                                    <div class="w-4 h-4 bg-white rounded-full absolute left-1 top-1"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">IP Whitelist</h4>
+                                    <p class="text-sm text-gray-600">Restrict access to specific IPs</p>
+                                </div>
+                                <div class="w-12 h-6 bg-green-500 rounded-full relative">
+                                    <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Navigation functionality
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageTitle = document.getElementById('pageTitle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        function showSection(sectionId) {
+            sections.forEach(section => section.classList.add('hidden'));
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('bg-green-100', 'text-green-700');
+                link.classList.add('text-gray-600', 'hover:bg-gray-100');
+            });
+
+            const activeLink = document.querySelector(`[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                activeLink.classList.add('bg-green-100', 'text-green-700');
+            }
+
+            const titles = {
+                'dashboard': 'Admin Dashboard',
+                'therapists': 'Therapist Management',
+                'analytics': 'Analytics',
+                'compliance': 'Compliance',
+                'settings': 'Settings'
+            };
+            pageTitle.textContent = titles[sectionId] || 'Admin Dashboard';
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('href').substring(1);
+                showSection(sectionId);
+            });
+        });
+
+        openSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.remove('collapsed');
+        });
+
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.add('collapsed');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024 &&
+                !sidebar.contains(e.target) &&
+                !openSidebarBtn.contains(e.target)) {
+                sidebar.classList.add('collapsed');
+            }
+        });
+
+        showSection('dashboard');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Flows - Hypnotherapy Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .flow-step {
+            transition: all 0.3s ease;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                        <i class="fas fa-route mr-3"></i>
+                        User Flows
+                    </h1>
+                    <p class="text-lg opacity-90">Step-by-step interaction paths for all platform features</p>
+                </div>
+                <a href="../index.html"
+                    class="bg-white text-purple-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Hub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="#client-flows" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                    <i class="fas fa-user mr-2"></i>Client Flows
+                </a>
+                <a href="#therapist-flows" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                    <i class="fas fa-user-md mr-2"></i>Therapist Flows
+                </a>
+                <a href="#admin-flows" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                    <i class="fas fa-cogs mr-2"></i>Admin Flows
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Client Flows -->
+        <section id="client-flows" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-user text-purple-600 mr-3"></i>
+                Client User Flows
+            </h2>
+
+            <!-- Registration Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-user-plus text-purple-600 mr-3"></i>
+                    Client Registration Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Landing Page</h4>
+                        <p class="text-sm text-gray-600">User visits platform homepage</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Sign Up</h4>
+                        <p class="text-sm text-gray-600">Click "Sign Up" and enter email</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Profile Setup</h4>
+                        <p class="text-sm text-gray-600">Complete profile information</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Verification</h4>
+                        <p class="text-sm text-gray-600">Email verification and setup</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-calendar-plus text-green-600 mr-3"></i>
+                    Appointment Booking Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Select Service</h4>
+                        <p class="text-sm text-gray-600">Choose therapy type</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Choose Therapist</h4>
+                        <p class="text-sm text-gray-600">Select preferred therapist</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Pick Date/Time</h4>
+                        <p class="text-sm text-gray-600">Select available slot</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Payment</h4>
+                        <p class="text-sm text-gray-600">Enter payment details</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Confirmation</h4>
+                        <p class="text-sm text-gray-600">Receive confirmation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Session Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-video text-blue-600 mr-3"></i>
+                    Video Session Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Reminder</h4>
+                        <p class="text-sm text-gray-600">Receive session reminder</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Join Session</h4>
+                        <p class="text-sm text-gray-600">Click join button</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Waiting Room</h4>
+                        <p class="text-sm text-gray-600">Wait for therapist</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Session</h4>
+                        <p class="text-sm text-gray-600">Conduct therapy session</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">End Session</h4>
+                        <p class="text-sm text-gray-600">Session concludes</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            6</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Feedback</h4>
+                        <p class="text-sm text-gray-600">Provide session feedback</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketplace Purchase Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-shopping-cart text-yellow-600 mr-3"></i>
+                    Marketplace Purchase Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Browse</h4>
+                        <p class="text-sm text-gray-600">Explore marketplace</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Select Item</h4>
+                        <p class="text-sm text-gray-600">Choose product/service</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Add to Cart</h4>
+                        <p class="text-sm text-gray-600">Add item to cart</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Checkout</h4>
+                        <p class="text-sm text-gray-600">Complete purchase</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Access</h4>
+                        <p class="text-sm text-gray-600">Access purchased content</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Therapist Flows -->
+        <section id="therapist-flows" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-user-md text-blue-600 mr-3"></i>
+                Therapist User Flows
+            </h2>
+
+            <!-- Client Session Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-handshake text-green-600 mr-3"></i>
+                    Client Session Management Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Session Prep</h4>
+                        <p class="text-sm text-gray-600">Review client notes</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Join Session</h4>
+                        <p class="text-sm text-gray-600">Start video call</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Conduct Session</h4>
+                        <p class="text-sm text-gray-600">Provide therapy</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Session Notes</h4>
+                        <p class="text-sm text-gray-600">Document session</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Assignments</h4>
+                        <p class="text-sm text-gray-600">Set homework tasks</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            6</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Follow-up</h4>
+                        <p class="text-sm text-gray-600">Schedule next session</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Management Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-upload text-purple-600 mr-3"></i>
+                    Content Management Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Upload</h4>
+                        <p class="text-sm text-gray-600">Upload audio files</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Categorize</h4>
+                        <p class="text-sm text-gray-600">Add tags and categories</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Set Permissions</h4>
+                        <p class="text-sm text-gray-600">Configure access rights</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Publish</h4>
+                        <p class="text-sm text-gray-600">Make content available</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Monitor</h4>
+                        <p class="text-sm text-gray-600">Track usage analytics</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue Management Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-dollar-sign text-yellow-600 mr-3"></i>
+                    Revenue Management Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Session Billing</h4>
+                        <p class="text-sm text-gray-600">Generate invoices</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Payment Processing</h4>
+                        <p class="text-sm text-gray-600">Process payments</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Revenue Tracking</h4>
+                        <p class="text-sm text-gray-600">Monitor earnings</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Reporting</h4>
+                        <p class="text-sm text-gray-600">Generate reports</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Tax Prep</h4>
+                        <p class="text-sm text-gray-600">Prepare tax documents</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Flows -->
+        <section id="admin-flows" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-cogs text-green-600 mr-3"></i>
+                Admin User Flows
+            </h2>
+
+            <!-- Therapist Onboarding Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-user-plus text-blue-600 mr-3"></i>
+                    Therapist Onboarding Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Application</h4>
+                        <p class="text-sm text-gray-600">Receive application</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Review</h4>
+                        <p class="text-sm text-gray-600">Review credentials</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Interview</h4>
+                        <p class="text-sm text-gray-600">Conduct interview</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Approval</h4>
+                        <p class="text-sm text-gray-600">Approve therapist</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Setup</h4>
+                        <p class="text-sm text-gray-600">Create account</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            6</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Training</h4>
+                        <p class="text-sm text-gray-600">Provide training</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance Monitoring Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-shield-alt text-red-600 mr-3"></i>
+                    Compliance Monitoring Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Monitor</h4>
+                        <p class="text-sm text-gray-600">Track compliance metrics</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Alert</h4>
+                        <p class="text-sm text-gray-600">Generate alerts</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Investigate</h4>
+                        <p class="text-sm text-gray-600">Review issues</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Action</h4>
+                        <p class="text-sm text-gray-600">Take corrective action</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Document</h4>
+                        <p class="text-sm text-gray-600">Record actions taken</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue Analytics Flow -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-chart-line text-green-600 mr-3"></i>
+                    Revenue Analytics Flow
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            1</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Data Collection</h4>
+                        <p class="text-sm text-gray-600">Gather revenue data</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            2</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Analysis</h4>
+                        <p class="text-sm text-gray-600">Analyze trends</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            3</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Reporting</h4>
+                        <p class="text-sm text-gray-600">Generate reports</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            4</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Distribution</h4>
+                        <p class="text-sm text-gray-600">Share with stakeholders</p>
+                    </div>
+                    <div class="flow-step bg-gray-50 rounded-lg p-4 text-center">
+                        <div
+                            class="step-number w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                            5</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Action</h4>
+                        <p class="text-sm text-gray-600">Take strategic actions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Handling Flows -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-exclamation-triangle text-red-600 mr-3"></i>
+                Error Handling & Recovery Flows
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Technical Issues -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Technical Issues Flow</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Issue Detection</h4>
+                                <p class="text-sm text-gray-600">System detects technical problem</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">User Notification</h4>
+                                <p class="text-sm text-gray-600">User receives error message</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Support Contact</h4>
+                                <p class="text-sm text-gray-600">User contacts support</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                4</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Resolution</h4>
+                                <p class="text-sm text-gray-600">Issue is resolved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Situations -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Emergency Situations Flow</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Emergency Detection</h4>
+                                <p class="text-sm text-gray-600">System identifies emergency</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Immediate Alert</h4>
+                                <p class="text-sm text-gray-600">Emergency contacts notified</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Session Termination</h4>
+                                <p class="text-sm text-gray-600">Session safely ended</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="step-number w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-bold">
+                                4</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Follow-up</h4>
+                                <p class="text-sm text-gray-600">Post-emergency procedures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">Hypnotherapy Platform - User Flows</p>
+            <p class="text-gray-400">Comprehensive interaction paths for all platform features</p>
+            <div class="mt-4">
+                <a href="../index.html" class="text-purple-400 hover:text-purple-300 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Main Hub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
