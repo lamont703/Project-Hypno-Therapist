@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feature Requirements - Hypnotherapy Platform</title>
+    <title>Simplified Feature Requirements - Hypnotherapy Audio Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -31,9 +31,9 @@
                 <div>
                     <h1 class="text-3xl md:text-4xl font-bold mb-2">
                         <i class="fas fa-list-check mr-3"></i>
-                        Feature Requirements
+                        Simplified Feature Requirements
                     </h1>
-                    <p class="text-lg opacity-90">Comprehensive platform specifications by user role</p>
+                    <p class="text-lg opacity-90">Core features for CRM-integrated audio library platform</p>
                 </div>
                 <a href="../index.html"
                     class="bg-white text-purple-600 px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors">
@@ -53,8 +53,8 @@
                 <a href="#therapist-features" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
                     <i class="fas fa-user-md mr-2"></i>Therapist Features
                 </a>
-                <a href="#admin-features" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
-                    <i class="fas fa-cogs mr-2"></i>Admin Features
+                <a href="#technical-requirements" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                    <i class="fas fa-cogs mr-2"></i>Technical Requirements
                 </a>
             </div>
         </div>
@@ -62,6 +62,45 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
+
+        <!-- Overview Section -->
+        <section class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+                    <i class="fas fa-lightbulb text-yellow-600 mr-3"></i>
+                    Simplified Platform Overview
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Core Purpose</h3>
+                        <p class="text-gray-600 mb-4">
+                            A streamlined platform that allows hypnotherapists to upload personalized audio recordings 
+                            and assign them to specific clients, integrated with GoHighLevel CRM for seamless client management 
+                            and automated communication.
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Focus on core value: personalized audio delivery</li>
+                            <li>• Eliminate complex features that aren't ready for market</li>
+                            <li>• Build foundation for future expansion</li>
+                            <li>• Faster time to market with proven concept</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Benefits</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• <strong>Lower Development Costs:</strong> Reduced complexity</li>
+                            <li>• <strong>Faster Launch:</strong> Focus on essential features</li>
+                            <li>• <strong>Better UX:</strong> No feature overload</li>
+                            <li>• <strong>CRM Integration:</strong> Leverage existing workflows</li>
+                            <li>• <strong>Automated Communication:</strong> Email & SMS notifications</li>
+                            <li>• <strong>Secure Access:</strong> Client-specific content protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Client Features -->
         <section id="client-features" class="mb-16">
@@ -78,131 +117,42 @@
                         <h3 class="text-xl font-semibold text-gray-800">Authentication & Profile</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• Secure login with email/password or OAuth</li>
-                        <li>• Two-factor authentication (optional)</li>
-                        <li>• Profile management with personal information</li>
-                        <li>• Emergency contact information</li>
-                        <li>• Medical history and preferences</li>
-                        <li>• Privacy settings and consent management</li>
+                        <li>• Secure login with email/password</li>
+                        <li>• Profile management</li>
+                        <li>• Contact information updates</li>
+                        <li>• Notification preferences</li>
+                        <li>• Password reset functionality</li>
                     </ul>
                 </div>
 
-                <!-- Secure Video Calls -->
+                <!-- Audio Library Access -->
                 <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
                     <div class="text-center mb-4">
-                        <i class="fas fa-video text-3xl text-green-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Secure Video Calls</h3>
+                        <i class="fas fa-music text-3xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Audio Library Access</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• HIPAA-compliant video conferencing</li>
-                        <li>• One-click session joining</li>
-                        <li>• Screen sharing capabilities</li>
-                        <li>• Recording consent management</li>
-                        <li>• Virtual waiting room</li>
-                        <li>• Technical support integration</li>
-                        <li>• Mobile-responsive interface</li>
+                        <li>• Access to assigned audio recordings</li>
+                        <li>• Streaming and download capabilities</li>
+                        <li>• Progress tracking for each recording</li>
+                        <li>• Search and filter functionality</li>
+                        <li>• Playback controls and bookmarks</li>
+                        <li>• Mobile-responsive audio player</li>
                     </ul>
                 </div>
 
-                <!-- Secure Messaging -->
+                <!-- Dashboard & Notifications -->
                 <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
                     <div class="text-center mb-4">
-                        <i class="fas fa-comments text-3xl text-purple-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Secure Messaging</h3>
+                        <i class="fas fa-tachometer-alt text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Dashboard & Notifications</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• End-to-end encrypted chat</li>
-                        <li>• File and image sharing</li>
-                        <li>• Message read receipts</li>
-                        <li>• Message search and history</li>
-                        <li>• Push notifications</li>
-                        <li>• Offline message queuing</li>
-                        <li>• Message retention policies</li>
-                    </ul>
-                </div>
-
-                <!-- Audio File Library -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-music text-3xl text-red-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Audio File Library</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• DRM-protected audio streaming</li>
-                        <li>• Download for offline listening</li>
-                        <li>• Playlist creation and management</li>
-                        <li>• Progress tracking and bookmarks</li>
-                        <li>• Audio quality settings</li>
-                        <li>• Sleep timer functionality</li>
-                        <li>• Usage analytics and recommendations</li>
-                    </ul>
-                </div>
-
-                <!-- Progress Tracking -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-chart-line text-3xl text-indigo-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Progress Tracking</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Session notes and reflections</li>
-                        <li>• Mood and symptom tracking</li>
-                        <li>• Goal setting and monitoring</li>
-                        <li>• Progress visualization charts</li>
-                        <li>• Journal entries and notes</li>
-                        <li>• Homework assignment tracking</li>
-                        <li>• Achievement badges and milestones</li>
-                    </ul>
-                </div>
-
-                <!-- Calendar & Booking -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-calendar-alt text-3xl text-yellow-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Calendar & Booking</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Real-time availability viewing</li>
-                        <li>• One-click appointment booking</li>
-                        <li>• Rescheduling and cancellation</li>
-                        <li>• Waitlist management</li>
-                        <li>• Calendar integration (Google, Outlook)</li>
-                        <li>• Reminder notifications (email, SMS, push)</li>
-                        <li>• Recurring appointment setup</li>
-                    </ul>
-                </div>
-
-                <!-- Marketplace -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-store text-3xl text-teal-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Marketplace</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Course catalog and browsing</li>
-                        <li>• Audio recording purchases</li>
-                        <li>• Subscription management</li>
-                        <li>• Secure payment processing</li>
-                        <li>• Purchase history and receipts</li>
-                        <li>• Wishlist and favorites</li>
-                        <li>• Reviews and ratings system</li>
-                    </ul>
-                </div>
-
-                <!-- Notifications -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-bell text-3xl text-pink-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Notifications</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Appointment reminders</li>
-                        <li>• New message alerts</li>
-                        <li>• Session preparation notifications</li>
-                        <li>• Progress milestone celebrations</li>
-                        <li>• New content availability</li>
-                        <li>• Payment confirmations</li>
-                        <li>• Customizable notification preferences</li>
+                        <li>• Simple, clean dashboard interface</li>
+                        <li>• New audio file notifications</li>
+                        <li>• Recent activity summary</li>
+                        <li>• Quick access to favorite recordings</li>
+                        <li>• Email and SMS notification support</li>
                     </ul>
                 </div>
             </div>
@@ -212,7 +162,7 @@
         <section id="therapist-features" class="mb-16">
             <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
                 <i class="fas fa-user-md text-blue-600 mr-3"></i>
-                Therapist Dashboard Features
+                Therapist Portal Features
             </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -223,248 +173,191 @@
                         <h3 class="text-xl font-semibold text-gray-800">Client Management</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• Client profile and history</li>
-                        <li>• Session notes and documentation</li>
-                        <li>• Progress monitoring and reports</li>
-                        <li>• Treatment plan management</li>
-                        <li>• Client communication logs</li>
-                        <li>• Emergency contact information</li>
-                        <li>• Consent and authorization tracking</li>
+                        <li>• View all active clients</li>
+                        <li>• Client profile and contact information</li>
+                        <li>• Track assigned audio files per client</li>
+                        <li>• Monitor client engagement and listening activity</li>
+                        <li>• Add notes and client-specific information</li>
                     </ul>
                 </div>
 
-                <!-- Scheduling Management -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-calendar-check text-3xl text-green-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Scheduling Management</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Availability calendar management</li>
-                        <li>• Appointment scheduling and confirmation</li>
-                        <li>• Rescheduling and cancellation handling</li>
-                        <li>• Waitlist management</li>
-                        <li>• Session duration and type configuration</li>
-                        <li>• Buffer time between sessions</li>
-                        <li>• Calendar integration and sync</li>
-                    </ul>
-                </div>
-
-                <!-- Content Management -->
+                <!-- Audio Upload & Assignment -->
                 <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
                     <div class="text-center mb-4">
                         <i class="fas fa-upload text-3xl text-purple-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Content Management</h3>
+                        <h3 class="text-xl font-semibold text-gray-800">Audio Upload & Assignment</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• Audio file upload and management</li>
-                        <li>• Content categorization and tagging</li>
-                        <li>• DRM protection application</li>
-                        <li>• Content sharing with specific clients</li>
-                        <li>• Usage analytics and tracking</li>
-                        <li>• Content version control</li>
-                        <li>• Bulk content operations</li>
+                        <li>• Upload audio files (MP3, WAV, M4A)</li>
+                        <li>• Add titles, descriptions, and categories</li>
+                        <li>• Assign recordings to specific clients</li>
+                        <li>• Bulk assignment capabilities</li>
+                        <li>• File management and organization</li>
+                        <li>• Audio quality validation</li>
                     </ul>
                 </div>
 
-                <!-- Video Session Management -->
+                <!-- CRM Integration -->
                 <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
                     <div class="text-center mb-4">
-                        <i class="fas fa-video-camera text-3xl text-red-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Video Session Management</h3>
+                        <i class="fas fa-link text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">CRM Integration</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• Session initiation and control</li>
-                        <li>• Screen sharing and presentation tools</li>
-                        <li>• Session recording (with consent)</li>
-                        <li>• Virtual whiteboard and notes</li>
-                        <li>• Technical support integration</li>
-                        <li>• Session quality monitoring</li>
-                        <li>• Emergency protocols and escalation</li>
+                        <li>• GoHighLevel API integration</li>
+                        <li>• Automatic client sync from CRM</li>
+                        <li>• Contact information updates</li>
+                        <li>• Activity tracking back to CRM</li>
+                        <li>• Sync status monitoring</li>
                     </ul>
                 </div>
 
-                <!-- Revenue Tracking -->
+                <!-- Communication Tools -->
                 <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
                     <div class="text-center mb-4">
-                        <i class="fas fa-dollar-sign text-3xl text-yellow-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Revenue Tracking</h3>
+                        <i class="fas fa-envelope text-3xl text-red-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Communication Tools</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• Session billing and invoicing</li>
-                        <li>• Payment processing and tracking</li>
-                        <li>• Revenue analytics and reporting</li>
-                        <li>• Commission and fee calculations</li>
-                        <li>• Tax reporting and documentation</li>
-                        <li>• Subscription and package management</li>
-                        <li>• Financial dashboard and insights</li>
+                        <li>• Send email notifications to clients</li>
+                        <li>• SMS messaging capabilities</li>
+                        <li>• Message templates for common scenarios</li>
+                        <li>• Automated notifications for new audio</li>
+                        <li>• Bulk messaging to multiple clients</li>
                     </ul>
                 </div>
 
                 <!-- Analytics & Reporting -->
                 <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
                     <div class="text-center mb-4">
-                        <i class="fas fa-chart-bar text-3xl text-indigo-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Analytics & Reporting</h3>
+                        <i class="fas fa-chart-bar text-3xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Simple Analytics</h3>
                     </div>
                     <ul class="text-gray-600 space-y-2">
-                        <li>• Client progress analytics</li>
-                        <li>• Session effectiveness metrics</li>
-                        <li>• Content usage statistics</li>
-                        <li>• Revenue and business insights</li>
-                        <li>• Custom report generation</li>
-                        <li>• Data export capabilities</li>
-                        <li>• Performance benchmarking</li>
+                        <li>• Client engagement metrics</li>
+                        <li>• Audio listening statistics</li>
+                        <li>• Most popular recordings</li>
+                        <li>• Client activity summaries</li>
+                        <li>• Basic reporting dashboard</li>
+                    </ul>
+                </div>
+
+                <!-- Dashboard -->
+                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-tachometer-alt text-3xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Therapist Dashboard</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Overview of active clients</li>
+                        <li>• Recent client activity</li>
+                        <li>• Quick action buttons</li>
+                        <li>• Upload and assignment shortcuts</li>
+                        <li>• CRM sync status</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Admin Features -->
-        <section id="admin-features" class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
-                <i class="fas fa-cogs text-green-600 mr-3"></i>
-                Admin/Agency Dashboard Features
-            </h2>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Multi-Therapist Management -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-user-tie text-3xl text-blue-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Multi-Therapist Management</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Therapist onboarding and profiles</li>
-                        <li>• Credential verification and management</li>
-                        <li>• Role and permission assignment</li>
-                        <li>• Performance monitoring and evaluation</li>
-                        <li>• Training and certification tracking</li>
-                        <li>• Communication and collaboration tools</li>
-                        <li>• Therapist directory and availability</li>
-                    </ul>
-                </div>
-
-                <!-- Revenue Analytics -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-chart-pie text-3xl text-green-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Revenue Analytics</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Agency-wide revenue tracking</li>
-                        <li>• Therapist performance metrics</li>
-                        <li>• Service and product analytics</li>
-                        <li>• Commission and fee calculations</li>
-                        <li>• Financial reporting and forecasting</li>
-                        <li>• Tax and compliance reporting</li>
-                        <li>• Profit margin analysis</li>
-                    </ul>
-                </div>
-
-                <!-- Branding & Customization -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-paint-brush text-3xl text-purple-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Branding & Customization</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Custom logo and branding</li>
-                        <li>• Color scheme and theme customization</li>
-                        <li>• Custom domain and subdomain setup</li>
-                        <li>• Email template customization</li>
-                        <li>• Custom forms and questionnaires</li>
-                        <li>• White-label solution options</li>
-                        <li>• Branded mobile apps</li>
-                    </ul>
-                </div>
-
-                <!-- Compliance Monitoring -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-shield-alt text-3xl text-red-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Compliance Monitoring</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• HIPAA compliance monitoring</li>
-                        <li>• Audit trail and logging</li>
-                        <li>• Data retention policy management</li>
-                        <li>• Security incident reporting</li>
-                        <li>• Compliance training tracking</li>
-                        <li>• Regulatory update notifications</li>
-                        <li>• Compliance dashboard and alerts</li>
-                    </ul>
-                </div>
-
-                <!-- System Administration -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-server text-3xl text-yellow-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">System Administration</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• User account management</li>
-                        <li>• System configuration and settings</li>
-                        <li>• Backup and disaster recovery</li>
-                        <li>• Performance monitoring</li>
-                        <li>• Security and access control</li>
-                        <li>• Integration management</li>
-                        <li>• System maintenance and updates</li>
-                    </ul>
-                </div>
-
-                <!-- Marketing & Analytics -->
-                <div class="bg-white rounded-lg shadow-lg p-6 feature-card">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-bullhorn text-3xl text-indigo-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Marketing & Analytics</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li>• Client acquisition analytics</li>
-                        <li>• Marketing campaign tracking</li>
-                        <li>• Conversion rate optimization</li>
-                        <li>• SEO and web analytics</li>
-                        <li>• Social media integration</li>
-                        <li>• Email marketing automation</li>
-                        <li>• ROI tracking and reporting</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Requirements Summary -->
-        <section class="mb-16">
+        <!-- Technical Requirements -->
+        <section id="technical-requirements" class="mb-16">
             <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
                 <i class="fas fa-cogs text-gray-600 mr-3"></i>
-                Technical Requirements Summary
+                Technical Requirements
             </h2>
 
             <div class="bg-white rounded-lg shadow-lg p-8">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Security Requirements</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Core Technologies</h3>
                         <ul class="text-gray-600 space-y-2">
-                            <li>• End-to-end encryption for all communications</li>
-                            <li>• HIPAA-compliant data handling and storage</li>
-                            <li>• Multi-factor authentication</li>
-                            <li>• Role-based access control</li>
-                            <li>• Audit logging and monitoring</li>
-                            <li>• Secure payment processing (PCI DSS)</li>
-                            <li>• Regular security assessments</li>
+                            <li>• <strong>Frontend:</strong> Modern web framework (React/Vue/Angular)</li>
+                            <li>• <strong>Backend:</strong> Node.js/Python/PHP API</li>
+                            <li>• <strong>Database:</strong> PostgreSQL/MySQL for user data</li>
+                            <li>• <strong>File Storage:</strong> AWS S3/Google Cloud Storage</li>
+                            <li>• <strong>Authentication:</strong> JWT-based secure login</li>
+                            <li>• <strong>Mobile:</strong> Responsive web design</li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 mt-6">Integrations</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• <strong>GoHighLevel API:</strong> CRM data sync</li>
+                            <li>• <strong>Email Service:</strong> SendGrid/Mailgun</li>
+                            <li>• <strong>SMS Service:</strong> Twilio/AWS SNS</li>
+                            <li>• <strong>Payment:</strong> Stripe (future expansion)</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Performance Requirements</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Security Requirements</h3>
                         <ul class="text-gray-600 space-y-2">
-                            <li>• 99.9% uptime SLA</li>
-                            <li>• Sub-2-second page load times</li>
-                            <li>• Support for 1000+ concurrent users</li>
-                            <li>• Mobile-responsive design</li>
-                            <li>• Offline functionality for critical features</li>
-                            <li>• CDN integration for global performance</li>
-                            <li>• Automated scaling capabilities</li>
+                            <li>• SSL/TLS encryption for all connections</li>
+                            <li>• Secure file storage with access controls</li>
+                            <li>• User authentication and authorization</li>
+                            <li>• Data privacy compliance (GDPR consideration)</li>
+                            <li>• Regular security updates and monitoring</li>
                         </ul>
+
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 mt-6">Performance Requirements</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Fast audio streaming and downloads</li>
+                            <li>• Responsive interface (< 2s load times)</li>
+                            <li>• Support for concurrent users</li>
+                            <li>• Mobile-optimized audio playback</li>
+                            <li>• Reliable uptime (99%+ availability)</li>
+                        </ul>
+
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 mt-6">File Requirements</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Support MP3, WAV, M4A formats</li>
+                            <li>• File size limits (up to 100MB)</li>
+                            <li>• Audio quality validation</li>
+                            <li>• Secure file access controls</li>
+                            <li>• CDN distribution for fast delivery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Removed Features -->
+        <section class="mb-16">
+            <div class="bg-red-50 border border-red-200 rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">
+                    <i class="fas fa-times-circle text-red-600 mr-3"></i>
+                    Features Removed from Original Scope
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-800 mb-4">Removed for Simplicity</h3>
+                        <ul class="text-red-700 space-y-2">
+                            <li>• ❌ Video calling functionality</li>
+                            <li>• ❌ Complex scheduling system</li>
+                            <li>• ❌ Marketplace and e-commerce</li>
+                            <li>• ❌ Progress tracking and analytics</li>
+                            <li>• ❌ Admin/agency management</li>
+                            <li>• ❌ Revenue tracking and billing</li>
+                            <li>• ❌ Advanced reporting</li>
+                            <li>• ❌ Multi-therapist management</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-800 mb-4">Future Consideration</h3>
+                        <p class="text-red-700 mb-4">
+                            These features can be added in future phases based on:
+                        </p>
+                        <ul class="text-red-700 space-y-2">
+                            <li>• User feedback and demand</li>
+                            <li>• Market validation of core concept</li>
+                            <li>• Business growth and resources</li>
+                            <li>• Technical infrastructure maturity</li>
+                            <li>• Client readiness for complexity</li>
+                        </ul>
+                        <p class="text-red-700 mt-4 font-semibold">
+                            Focus: Validate core value proposition first
+                        </p>
                     </div>
                 </div>
             </div>
@@ -474,8 +367,8 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-lg mb-2">Hypnotherapy Platform - Feature Requirements</p>
-            <p class="text-gray-400">Comprehensive specifications for all platform features</p>
+            <p class="text-lg mb-2">Hypnotherapy Audio Platform - Simplified Requirements</p>
+            <p class="text-gray-400">Core features for CRM-integrated audio delivery</p>
             <div class="mt-4">
                 <a href="../index.html" class="text-purple-400 hover:text-purple-300 transition-colors">
                     <i class="fas fa-arrow-left mr-2"></i>Back to Main Hub

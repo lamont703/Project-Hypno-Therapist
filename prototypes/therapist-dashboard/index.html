@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Therapist Dashboard - Hypnotherapy Platform</title>
+    <title>Therapist Dashboard - Hypnotherapy Audio Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -64,20 +64,20 @@
                     <i class="fas fa-users"></i>
                     <span>Clients</span>
                 </a>
-                <a href="#scheduling"
-                    class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
-                    <i class="fas fa-calendar"></i>
-                    <span>Scheduling</span>
-                </a>
-                <a href="#content"
+                <a href="#audio-upload"
                     class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
                     <i class="fas fa-upload"></i>
-                    <span>Content</span>
+                    <span>Upload Audio</span>
                 </a>
-                <a href="#analytics"
+                <a href="#crm-integration"
                     class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Analytics</span>
+                    <i class="fas fa-link"></i>
+                    <span>CRM Integration</span>
+                </a>
+                <a href="#communications"
+                    class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
+                    <i class="fas fa-envelope"></i>
+                    <span>Communications</span>
                 </a>
             </nav>
 
@@ -124,19 +124,6 @@
                 <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-500">Today's Sessions</p>
-                            <p class="text-2xl font-bold text-gray-800">5</p>
-                            <p class="text-sm text-green-600">2 completed</p>
-                        </div>
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-calendar text-blue-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
-                    <div class="flex items-center justify-between">
-                        <div>
                             <p class="text-sm text-gray-500">Active Clients</p>
                             <p class="text-2xl font-bold text-gray-800">24</p>
                             <p class="text-sm text-purple-600">+3 this month</p>
@@ -150,12 +137,12 @@
                 <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-500">Monthly Revenue</p>
-                            <p class="text-2xl font-bold text-gray-800">$8,250</p>
-                            <p class="text-sm text-green-600">+15% vs last month</p>
+                            <p class="text-sm text-gray-500">Audio Recordings</p>
+                            <p class="text-2xl font-bold text-gray-800">156</p>
+                            <p class="text-sm text-blue-600">12 this week</p>
                         </div>
-                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-dollar-sign text-green-600"></i>
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-music text-blue-600"></i>
                         </div>
                     </div>
                 </div>
@@ -163,12 +150,25 @@
                 <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-500">Avg Rating</p>
-                            <p class="text-2xl font-bold text-gray-800">4.8</p>
-                            <p class="text-sm text-yellow-600">32 reviews</p>
+                            <p class="text-sm text-gray-500">Total Listens</p>
+                            <p class="text-2xl font-bold text-gray-800">2,847</p>
+                            <p class="text-sm text-green-600">+15% vs last month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-headphones text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500">CRM Contacts</p>
+                            <p class="text-2xl font-bold text-gray-800">89</p>
+                            <p class="text-sm text-yellow-600">Synced with GHL</p>
                         </div>
                         <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-star text-yellow-600"></i>
+                            <i class="fas fa-link text-yellow-600"></i>
                         </div>
                     </div>
                 </div>
@@ -176,74 +176,62 @@
 
             <div class="grid lg:grid-cols-2 gap-6">
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Today's Schedule</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Client Activity</h3>
                     <div class="space-y-4">
-                        <div class="flex items-center space-x-4 p-3 bg-green-50 rounded-lg">
-                            <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center">
-                                <i class="fas fa-check text-green-600"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800">Sarah Johnson</p>
-                                <p class="text-sm text-gray-500">Anxiety Management • 10:00 AM</p>
-                            </div>
-                            <span class="text-sm text-green-600">Completed</span>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-3 bg-blue-50 rounded-lg">
-                            <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
-                                <i class="fas fa-clock text-blue-600"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800">Mike Davis</p>
-                                <p class="text-sm text-gray-500">Stress Reduction • 2:00 PM</p>
-                            </div>
-                            <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
-                                Join
-                            </button>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-3">
-                            <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
-                                <i class="fas fa-clock text-gray-600"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800">Lisa Chen</p>
-                                <p class="text-sm text-gray-500">Sleep Issues • 4:30 PM</p>
-                            </div>
-                            <span class="text-sm text-gray-500">Upcoming</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Messages</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
+                        <div class="flex items-center space-x-4 p-3 bg-purple-50 rounded-lg">
                             <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-user text-purple-600"></i>
                             </div>
                             <div class="flex-1">
                                 <p class="font-semibold text-gray-800">Sarah Johnson</p>
-                                <p class="text-sm text-gray-500">The breathing exercises are working great!</p>
+                                <p class="text-sm text-gray-500">Listened to "Anxiety Relief" - 2 hours ago</p>
                             </div>
-                            <div class="text-right">
-                                <p class="text-xs text-gray-400">2m ago</p>
-                                <span class="bg-red-500 text-white text-xs rounded-full px-1">1</span>
-                            </div>
+                            <span class="text-sm text-purple-600">Active</span>
                         </div>
 
-                        <div class="flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
+                        <div class="flex items-center space-x-4 p-3 bg-blue-50 rounded-lg">
                             <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-user text-blue-600"></i>
                             </div>
                             <div class="flex-1">
                                 <p class="font-semibold text-gray-800">Mike Davis</p>
-                                <p class="text-sm text-gray-500">Can we reschedule tomorrow's session?</p>
+                                <p class="text-sm text-gray-500">Completed "Sleep Meditation" - 5 hours ago</p>
                             </div>
-                            <div class="text-right">
-                                <p class="text-xs text-gray-400">15m ago</p>
-                            </div>
+                            <span class="text-sm text-blue-600">Active</span>
                         </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-green-50 rounded-lg">
+                            <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-semibold text-gray-800">Lisa Chen</p>
+                                <p class="text-sm text-gray-500">New client - Joined yesterday</p>
+                            </div>
+                            <span class="text-sm text-green-600">New</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="p-4 bg-blue-100 rounded-lg text-center hover:bg-blue-200 transition-colors">
+                            <i class="fas fa-upload text-2xl text-blue-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Upload Audio</p>
+                        </button>
+                        <button class="p-4 bg-purple-100 rounded-lg text-center hover:bg-purple-200 transition-colors">
+                            <i class="fas fa-users text-2xl text-purple-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Manage Clients</p>
+                        </button>
+                        <button class="p-4 bg-green-100 rounded-lg text-center hover:bg-green-200 transition-colors">
+                            <i class="fas fa-envelope text-2xl text-green-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Send Message</p>
+                        </button>
+                        <button class="p-4 bg-yellow-100 rounded-lg text-center hover:bg-yellow-200 transition-colors">
+                            <i class="fas fa-sync text-2xl text-yellow-600 mb-2"></i>
+                            <p class="font-semibold text-gray-800">Sync CRM</p>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -254,9 +242,14 @@
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-2xl font-bold text-gray-800">Client Management</h2>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-plus mr-2"></i>Add Client
-                    </button>
+                    <div class="flex space-x-2">
+                        <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            <i class="fas fa-sync mr-2"></i>Sync from CRM
+                        </button>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Add Client
+                        </button>
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -272,26 +265,26 @@
                         </div>
                         <div class="space-y-2 mb-3">
                             <div class="flex justify-between">
-                                <span class="text-sm text-gray-600">Sessions:</span>
+                                <span class="text-sm text-gray-600">Audio Files:</span>
                                 <span class="font-semibold">12</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-sm text-gray-600">Last Session:</span>
-                                <span class="text-sm">2 days ago</span>
+                                <span class="text-sm text-gray-600">Last Activity:</span>
+                                <span class="text-sm">2 hours ago</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-sm text-gray-600">Progress:</span>
-                                <span class="text-green-600 font-semibold">85%</span>
+                                <span class="text-sm text-gray-600">CRM Status:</span>
+                                <span class="text-green-600 font-semibold">Synced</span>
                             </div>
                         </div>
                         <div class="flex space-x-2">
                             <button
                                 class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                View Profile
+                                Assign Audio
                             </button>
                             <button
                                 class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-comments"></i>
+                                <i class="fas fa-envelope"></i>
                             </button>
                         </div>
                     </div>
@@ -308,140 +301,62 @@
                         </div>
                         <div class="space-y-2 mb-3">
                             <div class="flex justify-between">
-                                <span class="text-sm text-gray-600">Sessions:</span>
+                                <span class="text-sm text-gray-600">Audio Files:</span>
                                 <span class="font-semibold">8</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-sm text-gray-600">Last Session:</span>
-                                <span class="text-sm">1 week ago</span>
+                                <span class="text-sm text-gray-600">Last Activity:</span>
+                                <span class="text-sm">5 hours ago</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-sm text-gray-600">Progress:</span>
-                                <span class="text-blue-600 font-semibold">72%</span>
+                                <span class="text-sm text-gray-600">CRM Status:</span>
+                                <span class="text-green-600 font-semibold">Synced</span>
                             </div>
                         </div>
                         <div class="flex space-x-2">
                             <button
                                 class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                View Profile
+                                Assign Audio
                             </button>
                             <button
                                 class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-comments"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Scheduling Section -->
-        <section id="scheduling" class="section p-6 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Scheduling</h2>
-
-                <div class="grid lg:grid-cols-3 gap-6">
-                    <div class="lg:col-span-2">
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <div class="grid grid-cols-7 gap-1 mb-3">
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">S</div>
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">M</div>
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">T</div>
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">W</div>
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">T</div>
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">F</div>
-                                <div class="bg-gray-300 h-8 rounded text-xs flex items-center justify-center">S</div>
-                            </div>
-                            <div class="grid grid-cols-7 gap-1">
-                                <div class="bg-gray-200 h-16 rounded"></div>
-                                <div class="bg-blue-200 h-16 rounded relative">
-                                    <div class="absolute top-1 left-1 bg-blue-500 text-white text-xs px-1 rounded">10:00
-                                    </div>
-                                </div>
-                                <div class="bg-gray-200 h-16 rounded"></div>
-                                <div class="bg-green-200 h-16 rounded relative">
-                                    <div class="absolute top-1 left-1 bg-green-500 text-white text-xs px-1 rounded">2:00
-                                    </div>
-                                </div>
-                                <div class="bg-gray-200 h-16 rounded"></div>
-                                <div class="bg-gray-200 h-16 rounded"></div>
-                                <div class="bg-gray-200 h-16 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Availability Settings</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between p-2 bg-green-50 rounded">
-                                <span class="text-sm">Monday</span>
-                                <span class="bg-green-200 px-2 py-1 rounded text-xs">9:00 AM - 5:00 PM</span>
-                            </div>
-                            <div class="flex items-center justify-between p-2">
-                                <span class="text-sm">Tuesday</span>
-                                <span class="bg-green-200 px-2 py-1 rounded text-xs">9:00 AM - 5:00 PM</span>
-                            </div>
-                            <div class="flex items-center justify-between p-2">
-                                <span class="text-sm">Wednesday</span>
-                                <span class="bg-red-200 px-2 py-1 rounded text-xs">Unavailable</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Content Section -->
-        <section id="content" class="section p-6 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">Content Management</h2>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                        <i class="fas fa-upload mr-2"></i>Upload Content
-                    </button>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="border border-gray-200 rounded-lg p-4 card-hover">
-                        <div class="w-full h-32 bg-purple-100 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-headphones text-4xl text-purple-600"></i>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-2">Anxiety Relief Session</h3>
-                        <p class="text-sm text-gray-600 mb-3">15-minute guided meditation for anxiety</p>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-sm text-gray-500">1,234 plays</span>
-                            <span class="text-sm text-green-600">Published</span>
-                        </div>
-                        <div class="flex space-x-2">
-                            <button
-                                class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                Edit
-                            </button>
-                            <button
-                                class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-chart-bar"></i>
+                                <i class="fas fa-envelope"></i>
                             </button>
                         </div>
                     </div>
 
                     <div class="border border-gray-200 rounded-lg p-4 card-hover">
-                        <div class="w-full h-32 bg-blue-100 rounded-lg mb-4 flex items-center justify-center">
-                            <i class="fas fa-moon text-4xl text-blue-600"></i>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Lisa Chen</h3>
+                                <p class="text-sm text-gray-500">New Client</p>
+                            </div>
                         </div>
-                        <h3 class="font-semibold text-gray-800 mb-2">Sleep Meditation</h3>
-                        <p class="text-sm text-gray-600 mb-3">20-minute sleep induction</p>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-sm text-gray-500">567 plays</span>
-                            <span class="text-sm text-green-600">Published</span>
+                        <div class="space-y-2 mb-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Audio Files:</span>
+                                <span class="font-semibold">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">Joined:</span>
+                                <span class="text-sm">Yesterday</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm text-gray-600">CRM Status:</span>
+                                <span class="text-yellow-600 font-semibold">Pending</span>
+                            </div>
                         </div>
                         <div class="flex space-x-2">
                             <button
-                                class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                Edit
+                                class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                Setup Profile
                             </button>
                             <button
                                 class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                                <i class="fas fa-chart-bar"></i>
+                                <i class="fas fa-envelope"></i>
                             </button>
                         </div>
                     </div>
@@ -449,121 +364,356 @@
             </div>
         </section>
 
-        <!-- Analytics Section -->
-        <section id="analytics" class="section p-6 hidden">
+        <!-- Audio Upload Section -->
+        <section id="audio-upload" class="section p-6 hidden">
             <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Analytics</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Upload Audio Recording</h2>
 
                 <div class="grid lg:grid-cols-2 gap-6">
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Client Progress</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between p-2">
-                                <span class="text-gray-600">Anxiety Reduction</span>
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-24 bg-gray-200 rounded-full h-2">
-                                        <div class="bg-green-600 h-2 rounded-full" style="width: 75%"></div>
-                                    </div>
-                                    <span class="text-sm font-semibold">75%</span>
-                                </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Upload New Recording</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Recording Title</label>
+                                <input type="text" placeholder="e.g., Anxiety Relief Session" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
-                            <div class="flex items-center justify-between p-2">
-                                <span class="text-gray-600">Stress Management</span>
-                                <div class="flex items-center space-x-2">
-                                    <div class="w-24 bg-gray-200 rounded-full h-2">
-                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
-                                    </div>
-                                    <span class="text-sm font-semibold">60%</span>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                                <textarea placeholder="Brief description of the recording..." rows="3" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                                <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option>Select category...</option>
+                                    <option>Anxiety Relief</option>
+                                    <option>Sleep Induction</option>
+                                    <option>Confidence Building</option>
+                                    <option>Stress Management</option>
+                                    <option>Pain Management</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Audio File</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
+                                    <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-600">Drag and drop your audio file here, or <span class="text-blue-600 underline cursor-pointer">browse</span></p>
+                                    <p class="text-sm text-gray-500 mt-1">Supported formats: MP3, WAV, M4A (Max 100MB)</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Revenue Overview</h3>
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-gray-600">This Month</span>
-                                <span class="font-semibold text-green-600">$8,250</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Assign to Clients</h3>
+                        <div class="space-y-3 max-h-64 overflow-y-auto">
+                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-purple-600 text-sm"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">Sarah Johnson</span>
+                                </div>
+                                <span class="text-sm text-gray-500">Active</span>
                             </div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-gray-600">Last Month</span>
-                                <span class="font-semibold">$7,180</span>
+
+                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-blue-600 text-sm"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">Mike Davis</span>
+                                </div>
+                                <span class="text-sm text-gray-500">Active</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <div class="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">Lisa Chen</span>
+                                </div>
+                                <span class="text-sm text-gray-500">New</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700">Send email notification</span>
+                                <input type="checkbox" checked class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-600">Growth</span>
-                                <span class="text-green-600 font-semibold">+15%</span>
+                                <span class="text-sm text-gray-700">Send SMS notification</span>
+                                <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                            </div>
+                        </div>
+
+                        <button class="w-full mt-6 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-upload mr-2"></i>Upload & Assign
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRM Integration Section -->
+        <section id="crm-integration" class="section p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">CRM Integration</h2>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">GoHighLevel Connection</h3>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <div>
+                                    <p class="font-semibold text-green-800">Connected Successfully</p>
+                                    <p class="text-sm text-green-600">Last sync: 2 minutes ago</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                <span class="text-gray-700">Auto-sync new contacts</span>
+                                <input type="checkbox" checked class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                            </div>
+                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                <span class="text-gray-700">Sync contact updates</span>
+                                <input type="checkbox" checked class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                            </div>
+                            <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                                <span class="text-gray-700">Track audio engagement</span>
+                                <input type="checkbox" checked class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-3 mt-6">
+                            <button class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-sync mr-2"></i>Sync Now
+                            </button>
+                            <button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-cog mr-2"></i>Settings
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Sync Statistics</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-gray-600">Total Contacts</span>
+                                    <span class="font-semibold text-gray-800">89</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 89%"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-gray-600">Active Clients</span>
+                                    <span class="font-semibold text-gray-800">24</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 27%"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-gray-600">Pending Sync</span>
+                                    <span class="font-semibold text-gray-800">3</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 3%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Recent Activity</h4>
+                            <div class="space-y-2 text-sm">
+                                <p class="text-blue-700">• 3 new contacts synced</p>
+                                <p class="text-blue-700">• Sarah Johnson updated profile</p>
+                                <p class="text-blue-700">• Mike Davis marked as active</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <script>
+        <!-- Communications Section -->
+        <section id="communications" class="section p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Communications via GoHighLevel</h2>
+
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Send Message via GHL</h3>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-info-circle text-blue-600"></i>
+                                <div>
+                                    <p class="font-semibold text-blue-800">Powered by GoHighLevel</p>
+                                    <p class="text-sm text-blue-600">Messages are sent through your GHL account</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Recipients (from GHL)</label>
+                                <select multiple class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" size="4">
+                                    <option>Sarah Johnson (sarah@email.com)</option>
+                                    <option>Mike Davis (mike@email.com)</option>
+                                    <option>Lisa Chen (lisa@email.com)</option>
+                                    <option>All Active Clients</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Message Type</label>
+                                <div class="flex space-x-4">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="messageType" value="email" checked class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                        <span class="ml-2 text-gray-700">Email (via GHL)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="messageType" value="sms" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                        <span class="ml-2 text-gray-700">SMS (via GHL)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="messageType" value="both" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                        <span class="ml-2 text-gray-700">Both</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" placeholder="Message subject..." class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea placeholder="Your message..." rows="6" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-paper-plane mr-2"></i>Send via GoHighLevel
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">GHL Integration Status</h3>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                                <div>
+                                    <p class="font-semibold text-green-800">Messaging Active</p>
+                                    <p class="text-sm text-green-600">Connected to GHL SMS & Email</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="p-3 border border-gray-200 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">Quick Actions</h4>
+                                <p class="text-sm text-gray-600 mb-2">Send notifications about new audio files</p>
+                                <button class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">
+                                    Notify New Audio
+                                </button>
+                            </div>
+                            <div class="p-3 border border-gray-200 rounded-lg">
+                                <h4 class="font-semibold text-gray-800">GHL Templates</h4>
+                                <p class="text-sm text-gray-600 mb-2">Use your existing GHL message templates</p>
+                                <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700">
+                                    Open GHL Templates
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">GHL Communication Stats</h4>
+                            <div class="space-y-1 text-sm text-blue-700">
+                                <p>• 45 emails sent this month (via GHL)</p>
+                                <p>• 23 SMS messages sent (via GHL)</p>
+                                <p>• 89% open rate</p>
+                                <p>• 67% engagement rate</p>
+                                <p>• All tracking managed in GHL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    <script>
         // Navigation functionality
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pageTitle = document.getElementById('pageTitle');
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
-        const openSidebarBtn = document.getElementById('openSidebar');
-        const closeSidebarBtn = document.getElementById('closeSidebar');
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const pageTitle = document.getElementById("pageTitle");
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.getElementById("mainContent");
+        const openSidebarBtn = document.getElementById("openSidebar");
+        const closeSidebarBtn = document.getElementById("closeSidebar");
 
         function showSection(sectionId) {
-            sections.forEach(section => section.classList.add('hidden'));
+            sections.forEach(section => section.classList.add("hidden"));
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
-                targetSection.classList.remove('hidden');
+                targetSection.classList.remove("hidden");
             }
 
             navLinks.forEach(link => {
-                link.classList.remove('bg-blue-100', 'text-blue-700');
-                link.classList.add('text-gray-600', 'hover:bg-gray-100');
+                link.classList.remove("bg-blue-100", "text-blue-700");
+                link.classList.add("text-gray-600", "hover:bg-gray-100");
             });
 
             const activeLink = document.querySelector(`[href="#${sectionId}"]`);
             if (activeLink) {
-                activeLink.classList.remove('text-gray-600', 'hover:bg-gray-100');
-                activeLink.classList.add('bg-blue-100', 'text-blue-700');
+                activeLink.classList.remove("text-gray-600", "hover:bg-gray-100");
+                activeLink.classList.add("bg-blue-100", "text-blue-700");
             }
 
             const titles = {
-                'dashboard': 'Dashboard',
-                'clients': 'Client Management',
-                'scheduling': 'Scheduling',
-                'content': 'Content Management',
-                'analytics': 'Analytics'
+                "dashboard": "Dashboard",
+                "clients": "Client Management",
+                "audio-upload": "Upload Audio",
+                "crm-integration": "CRM Integration",
+                "communications": "Communications"
             };
-            pageTitle.textContent = titles[sectionId] || 'Dashboard';
+            pageTitle.textContent = titles[sectionId] || "Dashboard";
         }
 
         navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
+            link.addEventListener("click", (e) => {
                 e.preventDefault();
-                const sectionId = link.getAttribute('href').substring(1);
+                const sectionId = link.getAttribute("href").substring(1);
                 showSection(sectionId);
             });
         });
 
-        openSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.remove('collapsed');
+        openSidebarBtn.addEventListener("click", () => {
+            sidebar.classList.remove("collapsed");
         });
 
-        closeSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.add('collapsed');
+        closeSidebarBtn.addEventListener("click", () => {
+            sidebar.classList.add("collapsed");
         });
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener("click", (e) => {
             if (window.innerWidth < 1024 &&
                 !sidebar.contains(e.target) &&
                 !openSidebarBtn.contains(e.target)) {
-                sidebar.classList.add('collapsed');
+                sidebar.classList.add("collapsed");
             }
         });
 
-        showSection('dashboard');
+        // Initialize with dashboard section
+        showSection("dashboard");
     </script>
 </body>
 
