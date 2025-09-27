@@ -36,12 +36,203 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important;
+            }
+            
+            .sidebar {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .mobile-full-width {
+                width: 100%;
+                margin: 0;
+                padding: 1rem;
+            }
+            
+            .mobile-grid-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-text-sm {
+                font-size: 0.875rem;
+            }
+            
+            .mobile-p-4 {
+                padding: 1rem;
+            }
+            
+            .mobile-space-y-2 > * + * {
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* Messenger-style chat */
+        .chat-container {
+            height: calc(100vh - 200px);
+            max-height: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                height: calc(100vh - 160px);
+                max-height: none;
+            }
+        }
+
+        .message-bubble {
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .message-bubble {
+                max-width: 85%;
+            }
+        }
+
+        .message-sent {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+
+        .message-received {
+            background: #f1f3f4;
+            color: #333;
+        }
+
+        .typing-indicator {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        .online-indicator {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border: 2px solid white;
+        }
+
+        /* Touch-friendly buttons */
+        .touch-button {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Mobile navigation */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            z-index: 50;
+        }
+
+        .mobile-nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            text-decoration: none;
+            color: #6b7280;
+            transition: color 0.2s;
+        }
+
+        .mobile-nav-item.active {
+            color: #7c3aed;
+        }
+
+        .mobile-nav-item i {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .mobile-nav-item span {
+            font-size: 0.75rem;
+        }
+
+        /* Hide desktop sidebar on mobile */
+        @media (max-width: 768px) {
+            .desktop-sidebar {
+                display: none;
+            }
+            
+            .desktop-header {
+                display: none;
+            }
+        }
+
+        /* Show mobile header on mobile */
+        @media (min-width: 769px) {
+            .mobile-header {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        /* Mobile header */
+        .mobile-header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+        }
+
+        /* Audio player mobile optimizations */
+        .audio-card-mobile {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .audio-controls-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .audio-controls-mobile button {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+
+        /* Message input mobile */
+        .message-input-mobile {
+            padding: 0.75rem;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+
+        /* Swipe gestures for mobile */
+        .swipeable {
+            touch-action: pan-x;
+        }
     </style>
 </head>
 
 <body class="bg-gray-50">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar fixed left-0 top-0 h-full w-64 bg-white shadow-lg z-50">
+    <!-- Desktop Sidebar -->
+    <aside id="sidebar" class="desktop-sidebar sidebar fixed left-0 top-0 h-full w-64 bg-white shadow-lg z-50">
         <div class="p-6">
             <div class="flex items-center justify-between mb-8">
                 <div class="flex items-center space-x-3">
@@ -64,10 +255,11 @@
                     <i class="fas fa-music"></i>
                     <span>Audio Library</span>
                 </a>
-                <a href="#notifications"
+                <a href="#messages"
                     class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
-                    <i class="fas fa-bell"></i>
-                    <span>Notifications</span>
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                    <span class="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">2</span>
                 </a>
                 <a href="#profile"
                     class="nav-link flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100">
@@ -78,8 +270,9 @@
 
             <div class="mt-8 pt-6 border-t border-gray-200">
                 <div class="flex items-center space-x-3 p-3">
-                    <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center">
+                    <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center relative">
                         <i class="fas fa-user text-purple-600"></i>
+                        <div class="online-indicator"></div>
                     </div>
                     <div>
                         <div class="font-semibold text-gray-800">Sarah Johnson</div>
@@ -100,135 +293,158 @@
         </div>
     </aside>
 
-    <!-- Main Content -->
-    <main id="mainContent" class="main-content ml-64 min-h-screen">
-        <!-- Top Navigation -->
-        <header class="bg-white shadow-sm border-b border-gray-200">
-            <div class="flex items-center justify-between px-6 py-4">
-                <div class="flex items-center space-x-4">
-                    <button id="openSidebar" class="lg:hidden text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h2 id="pageTitle" class="text-2xl font-bold text-gray-800">Dashboard</h2>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button class="relative p-2 text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-bell"></i>
-                        <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
-                    </button>
-                    <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
-                        <i class="fas fa-user text-purple-600"></i>
-                    </div>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-brain text-xl text-purple-600"></i>
+                <h1 class="text-lg font-bold text-gray-800">HypnoTherapy</h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button class="relative p-2 text-gray-500">
+                    <i class="fas fa-comments"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-purple-600"></i>
                 </div>
             </div>
-        </header>
+        </div>
+        <div class="mt-2">
+            <h2 id="mobilePageTitle" class="text-lg font-semibold text-gray-800">Dashboard</h2>
+        </div>
+    </header>
 
+    <!-- Desktop Header -->
+    <header class="desktop-header bg-white shadow-sm border-b border-gray-200">
+        <div class="flex items-center justify-between px-6 py-4">
+            <div class="flex items-center space-x-4">
+                <button id="openSidebar" class="lg:hidden text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h2 id="pageTitle" class="text-2xl font-bold text-gray-800">Dashboard</h2>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="relative p-2 text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-comments"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="w-8 h-8 bg-purple-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-purple-600"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-content ml-64 min-h-screen pb-20 md:pb-0">
         <!-- Dashboard Section -->
-        <section id="dashboard" class="section p-6">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+        <section id="dashboard" class="section p-4 md:p-6">
+            <!-- Mobile Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 card-hover">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-500">New Audio Files</p>
-                            <p class="text-2xl font-bold text-gray-800">3</p>
-                            <p class="text-sm text-purple-600">From Dr. Sarah Smith</p>
+                            <p class="text-xl md:text-2xl font-bold text-gray-800">3</p>
+                            <p class="text-xs md:text-sm text-purple-600">From Dr. Sarah Smith</p>
                         </div>
-                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                             <i class="fas fa-music text-purple-600"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 card-hover">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-500">Total Recordings</p>
-                            <p class="text-2xl font-bold text-gray-800">12</p>
-                            <p class="text-sm text-green-600">Available to listen</p>
+                            <p class="text-xl md:text-2xl font-bold text-gray-800">12</p>
+                            <p class="text-xs md:text-sm text-green-600">Available to listen</p>
                         </div>
-                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center">
                             <i class="fas fa-headphones text-green-600"></i>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 card-hover">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-500">Last Listened</p>
-                            <p class="text-2xl font-bold text-gray-800">2 days</p>
-                            <p class="text-sm text-blue-600">Sleep meditation</p>
+                            <p class="text-sm text-gray-500">Unread Messages</p>
+                            <p class="text-xl md:text-2xl font-bold text-gray-800">2</p>
+                            <p class="text-xs md:text-sm text-blue-600">From therapist</p>
                         </div>
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-clock text-blue-600"></i>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-comments text-blue-600"></i>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-6">
-                <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-4 md:p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Audio Files</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4 p-3 bg-purple-50 rounded-lg">
-                            <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center">
+                    <div class="space-y-3 md:space-y-4">
+                        <div class="flex items-center space-x-3 md:space-x-4 p-3 bg-purple-50 rounded-lg">
+                            <div class="w-8 h-8 md:w-10 md:h-10 bg-purple-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-play text-purple-600"></i>
                             </div>
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800">Anxiety Relief Session</p>
-                                <p class="text-sm text-gray-500">15 min • Added 2 days ago</p>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-semibold text-gray-800 text-sm md:text-base truncate">Anxiety Relief Session</p>
+                                <p class="text-xs md:text-sm text-gray-500">15 min • Added 2 days ago</p>
                             </div>
-                            <button class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">
+                            <button class="bg-purple-600 text-white px-3 py-1 rounded text-xs md:text-sm hover:bg-purple-700 touch-button">
                                 Listen
                             </button>
                         </div>
 
-                        <div class="flex items-center space-x-4 p-3 bg-blue-50 rounded-lg">
-                            <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
+                        <div class="flex items-center space-x-3 md:space-x-4 p-3 bg-blue-50 rounded-lg">
+                            <div class="w-8 h-8 md:w-10 md:h-10 bg-blue-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-play text-blue-600"></i>
                             </div>
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800">Sleep Induction</p>
-                                <p class="text-sm text-gray-500">20 min • Added 1 week ago</p>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-semibold text-gray-800 text-sm md:text-base truncate">Sleep Induction</p>
+                                <p class="text-xs md:text-sm text-gray-500">20 min • Added 1 week ago</p>
                             </div>
-                            <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
+                            <button class="bg-blue-600 text-white px-3 py-1 rounded text-xs md:text-sm hover:bg-blue-700 touch-button">
                                 Listen
                             </button>
                         </div>
 
-                        <div class="flex items-center space-x-4 p-3 bg-green-50 rounded-lg">
-                            <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center">
+                        <div class="flex items-center space-x-3 md:space-x-4 p-3 bg-green-50 rounded-lg">
+                            <div class="w-8 h-8 md:w-10 md:h-10 bg-green-200 rounded-full flex items-center justify-center">
                                 <i class="fas fa-play text-green-600"></i>
                             </div>
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800">Confidence Building</p>
-                                <p class="text-sm text-gray-500">18 min • Added 2 weeks ago</p>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-semibold text-gray-800 text-sm md:text-base truncate">Confidence Building</p>
+                                <p class="text-xs md:text-sm text-gray-500">18 min • Added 2 weeks ago</p>
                             </div>
-                            <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700">
+                            <button class="bg-green-600 text-white px-3 py-1 rounded text-xs md:text-sm hover:bg-green-700 touch-button">
                                 Listen
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-white rounded-lg shadow-lg p-4 md:p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <button class="p-4 bg-purple-100 rounded-lg text-center hover:bg-purple-200 transition-colors">
-                            <i class="fas fa-music text-2xl text-purple-600 mb-2"></i>
-                            <p class="font-semibold text-gray-800">Browse Library</p>
+                    <div class="grid grid-cols-2 gap-3 md:gap-4">
+                        <button class="p-3 md:p-4 bg-purple-100 rounded-lg text-center hover:bg-purple-200 transition-colors touch-button">
+                            <i class="fas fa-music text-xl md:text-2xl text-purple-600 mb-1 md:mb-2"></i>
+                            <p class="font-semibold text-gray-800 text-xs md:text-sm">Browse Library</p>
                         </button>
-                        <button class="p-4 bg-blue-100 rounded-lg text-center hover:bg-blue-200 transition-colors">
-                            <i class="fas fa-download text-2xl text-blue-600 mb-2"></i>
-                            <p class="font-semibold text-gray-800">Download Audio</p>
+                        <button class="p-3 md:p-4 bg-blue-100 rounded-lg text-center hover:bg-blue-200 transition-colors touch-button">
+                            <i class="fas fa-comments text-xl md:text-2xl text-blue-600 mb-1 md:mb-2"></i>
+                            <p class="font-semibold text-gray-800 text-xs md:text-sm">Send Message</p>
                         </button>
-                        <button class="p-4 bg-green-100 rounded-lg text-center hover:bg-green-200 transition-colors">
-                            <i class="fas fa-user-cog text-2xl text-green-600 mb-2"></i>
-                            <p class="font-semibold text-gray-800">Update Profile</p>
+                        <button class="p-3 md:p-4 bg-green-100 rounded-lg text-center hover:bg-green-200 transition-colors touch-button">
+                            <i class="fas fa-user-cog text-xl md:text-2xl text-green-600 mb-1 md:mb-2"></i>
+                            <p class="font-semibold text-gray-800 text-xs md:text-sm">Update Profile</p>
                         </button>
-                        <button class="p-4 bg-orange-100 rounded-lg text-center hover:bg-orange-200 transition-colors">
-                            <i class="fas fa-question-circle text-2xl text-orange-600 mb-2"></i>
-                            <p class="font-semibold text-gray-800">Get Help</p>
+                        <button class="p-3 md:p-4 bg-orange-100 rounded-lg text-center hover:bg-orange-200 transition-colors touch-button">
+                            <i class="fas fa-question-circle text-xl md:text-2xl text-orange-600 mb-1 md:mb-2"></i>
+                            <p class="font-semibold text-gray-800 text-xs md:text-sm">Get Help</p>
                         </button>
                     </div>
                 </div>
@@ -236,100 +452,100 @@
         </section>
 
         <!-- Audio Library Section -->
-        <section id="library" class="section p-6 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">My Audio Library</h2>
+        <section id="library" class="section p-4 md:p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 md:mb-6 space-y-3 md:space-y-0">
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800">My Audio Library</h2>
                     <div class="flex space-x-2">
                         <input type="text" placeholder="Search recordings..."
-                            class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            class="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 message-input-mobile">
                         <button
-                            class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                            class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors touch-button">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 rounded-lg p-4 card-hover">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="bg-gray-50 rounded-lg p-4 audio-card-mobile card-hover">
                         <div class="flex items-center space-x-3 mb-3">
-                            <div class="w-12 h-12 bg-purple-200 rounded-lg flex items-center justify-center">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-200 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-play text-purple-600"></i>
                             </div>
-                            <div class="flex-1">
-                                <h3 class="font-semibold text-gray-800">Anxiety Relief</h3>
-                                <p class="text-sm text-gray-500">15 min • Dr. Sarah Smith</p>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-800 text-sm md:text-base truncate">Anxiety Relief</h3>
+                                <p class="text-xs md:text-sm text-gray-500">15 min • Dr. Sarah Smith</p>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mb-3">
                             <div class="w-full bg-gray-200 rounded-full h-2 mr-3">
                                 <div class="bg-purple-600 h-2 rounded-full" style="width: 60%"></div>
                             </div>
-                            <span class="text-sm text-gray-500">9:23</span>
+                            <span class="text-xs md:text-sm text-gray-500">9:23</span>
                         </div>
-                        <div class="flex space-x-2">
+                        <div class="audio-controls-mobile md:flex md:space-x-2">
                             <button
-                                class="flex-1 bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                                class="bg-purple-600 text-white py-2 px-3 rounded-lg hover:bg-purple-700 transition-colors touch-button text-sm md:text-base">
                                 <i class="fas fa-play mr-1"></i>Play
                             </button>
                             <button
-                                class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                class="bg-gray-200 text-gray-700 py-2 px-3 rounded-lg hover:bg-gray-300 transition-colors touch-button text-sm md:text-base">
                                 <i class="fas fa-download"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-lg p-4 card-hover">
+                    <div class="bg-gray-50 rounded-lg p-4 audio-card-mobile card-hover">
                         <div class="flex items-center space-x-3 mb-3">
-                            <div class="w-12 h-12 bg-blue-200 rounded-lg flex items-center justify-center">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-200 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-play text-blue-600"></i>
                             </div>
-                            <div class="flex-1">
-                                <h3 class="font-semibold text-gray-800">Sleep Meditation</h3>
-                                <p class="text-sm text-gray-500">20 min • Dr. Sarah Smith</p>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-800 text-sm md:text-base truncate">Sleep Meditation</h3>
+                                <p class="text-xs md:text-sm text-gray-500">20 min • Dr. Sarah Smith</p>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mb-3">
                             <div class="w-full bg-gray-200 rounded-full h-2 mr-3">
                                 <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
                             </div>
-                            <span class="text-sm text-gray-500">20:00</span>
+                            <span class="text-xs md:text-sm text-gray-500">20:00</span>
                         </div>
-                        <div class="flex space-x-2">
+                        <div class="audio-controls-mobile md:flex md:space-x-2">
                             <button
-                                class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                class="bg-blue-600 text-white py-2 px-3 rounded-lg hover:bg-blue-700 transition-colors touch-button text-sm md:text-base">
                                 <i class="fas fa-redo mr-1"></i>Replay
                             </button>
                             <button
-                                class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                class="bg-gray-200 text-gray-700 py-2 px-3 rounded-lg hover:bg-gray-300 transition-colors touch-button text-sm md:text-base">
                                 <i class="fas fa-download"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-lg p-4 card-hover">
+                    <div class="bg-gray-50 rounded-lg p-4 audio-card-mobile card-hover">
                         <div class="flex items-center space-x-3 mb-3">
-                            <div class="w-12 h-12 bg-green-200 rounded-lg flex items-center justify-center">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-green-200 rounded-lg flex items-center justify-center">
                                 <i class="fas fa-play text-green-600"></i>
                             </div>
-                            <div class="flex-1">
-                                <h3 class="font-semibold text-gray-800">Confidence Building</h3>
-                                <p class="text-sm text-gray-500">18 min • Dr. Sarah Smith</p>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-gray-800 text-sm md:text-base truncate">Confidence Building</h3>
+                                <p class="text-xs md:text-sm text-gray-500">18 min • Dr. Sarah Smith</p>
                             </div>
                         </div>
                         <div class="flex items-center justify-between mb-3">
                             <div class="w-full bg-gray-200 rounded-full h-2 mr-3">
                                 <div class="bg-green-600 h-2 rounded-full" style="width: 30%"></div>
                             </div>
-                            <span class="text-sm text-gray-500">5:24</span>
+                            <span class="text-xs md:text-sm text-gray-500">5:24</span>
                         </div>
-                        <div class="flex space-x-2">
+                        <div class="audio-controls-mobile md:flex md:space-x-2">
                             <button
-                                class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                class="bg-green-600 text-white py-2 px-3 rounded-lg hover:bg-green-700 transition-colors touch-button text-sm md:text-base">
                                 <i class="fas fa-play mr-1"></i>Continue
                             </button>
                             <button
-                                class="px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                class="bg-gray-200 text-gray-700 py-2 px-3 rounded-lg hover:bg-gray-300 transition-colors touch-button text-sm md:text-base">
                                 <i class="fas fa-download"></i>
                             </button>
                         </div>
@@ -338,101 +554,152 @@
             </div>
         </section>
 
-        <!-- Notifications Section -->
-        <section id="notifications" class="section p-6 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Notifications</h2>
+        <!-- Messages Section (Facebook Messenger Style) -->
+        <section id="messages" class="section p-4 md:p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
+                <!-- Chat Header -->
+                <div class="bg-gray-50 border-b border-gray-200 p-3 md:p-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-blue-200 rounded-full flex items-center justify-center relative">
+                            <i class="fas fa-user-md text-blue-600 text-sm md:text-base"></i>
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-semibold text-gray-800 text-sm md:text-base truncate">Dr. Sarah Smith</h3>
+                            <p class="text-xs md:text-sm text-green-600">Online now</p>
+                        </div>
+                        <div class="flex space-x-1 md:space-x-2">
+                            <button class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-200 rounded-full touch-button">
+                                <i class="fas fa-phone text-sm md:text-base"></i>
+                            </button>
+                            <button class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-200 rounded-full touch-button">
+                                <i class="fas fa-video text-sm md:text-base"></i>
+                            </button>
+                            <button class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-200 rounded-full touch-button">
+                                <i class="fas fa-ellipsis-v text-sm md:text-base"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-4 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                        <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center">
-                            <i class="fas fa-music text-purple-600"></i>
+                <!-- Chat Messages -->
+                <div id="chatMessages" class="chat-container overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 bg-gray-50">
+                    <!-- Received Message -->
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 md:w-8 md:h-8 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-md text-blue-600 text-xs md:text-sm"></i>
                         </div>
-                        <div class="flex-1">
-                            <p class="font-semibold text-gray-800">New Audio Recording Available</p>
-                            <p class="text-sm text-gray-600">Dr. Sarah Smith has uploaded a new anxiety relief session for you.</p>
-                            <p class="text-xs text-gray-500 mt-1">2 hours ago</p>
+                        <div class="message-bubble message-received rounded-lg p-2 md:p-3">
+                            <p class="text-xs md:text-sm">Hi Sarah! I've uploaded a new anxiety relief session for you. It's specifically designed to help with the techniques we discussed in our last session.</p>
+                            <p class="text-xs text-gray-500 mt-1">2:30 PM</p>
                         </div>
-                        <button class="bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700">
-                            Listen
-                        </button>
                     </div>
 
-                    <div class="flex items-center space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                        <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
-                            <i class="fas fa-bell text-blue-600"></i>
+                    <!-- Sent Message -->
+                    <div class="flex items-start space-x-2 justify-end">
+                        <div class="message-bubble message-sent rounded-lg p-2 md:p-3">
+                            <p class="text-xs md:text-sm">Thank you Dr. Smith! I'll listen to it tonight before bed. Should I let you know how it goes?</p>
+                            <p class="text-xs text-blue-100 mt-1">2:32 PM</p>
                         </div>
-                        <div class="flex-1">
-                            <p class="font-semibold text-gray-800">Reminder: Daily Practice</p>
-                            <p class="text-sm text-gray-600">Don't forget to listen to your daily meditation recording.</p>
-                            <p class="text-xs text-gray-500 mt-1">1 day ago</p>
+                        <div class="w-6 h-6 md:w-8 md:h-8 bg-purple-200 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user text-purple-600 text-xs md:text-sm"></i>
                         </div>
-                        <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
-                            View
-                        </button>
                     </div>
 
-                    <div class="flex items-center space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                        <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center">
-                            <i class="fas fa-check text-green-600"></i>
+                    <!-- Received Message -->
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 md:w-8 md:h-8 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-md text-blue-600 text-xs md:text-sm"></i>
                         </div>
-                        <div class="flex-1">
-                            <p class="font-semibold text-gray-800">Profile Updated Successfully</p>
-                            <p class="text-sm text-gray-600">Your profile information has been updated.</p>
-                            <p class="text-xs text-gray-500 mt-1">3 days ago</p>
+                        <div class="message-bubble message-received rounded-lg p-2 md:p-3">
+                            <p class="text-xs md:text-sm">Yes, please do! I'd love to hear about your experience. Also, remember to practice the breathing exercises we went over.</p>
+                            <p class="text-xs text-gray-500 mt-1">2:33 PM</p>
                         </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div id="typingIndicator" class="flex items-start space-x-2 hidden">
+                        <div class="w-6 h-6 md:w-8 md:h-8 bg-blue-200 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-md text-blue-600 text-xs md:text-sm"></i>
+                        </div>
+                        <div class="message-bubble message-received rounded-lg p-2 md:p-3">
+                            <div class="flex space-x-1">
+                                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400 rounded-full typing-indicator"></div>
+                                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400 rounded-full typing-indicator" style="animation-delay: 0.2s;"></div>
+                                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400 rounded-full typing-indicator" style="animation-delay: 0.4s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="border-t border-gray-200 p-3 md:p-4 bg-white">
+                    <div class="flex items-center space-x-2 md:space-x-3">
+                        <button class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full touch-button">
+                            <i class="fas fa-paperclip text-sm md:text-base"></i>
+                        </button>
+                        <div class="flex-1 relative">
+                            <input type="text" id="messageInput" placeholder="Type a message..." 
+                                class="w-full border border-gray-300 rounded-full px-3 md:px-4 py-2 pr-10 md:pr-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent message-input-mobile">
+                            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-gray-500 hover:text-gray-700 touch-button">
+                                <i class="fas fa-smile text-sm md:text-base"></i>
+                            </button>
+                        </div>
+                        <button id="sendButton" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors touch-button">
+                            <i class="fas fa-paper-plane text-sm md:text-base"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Profile Section -->
-        <section id="profile" class="section p-6 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-gray-800 mb-6">Profile Settings</h2>
+        <section id="profile" class="section p-4 md:p-6 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-4 md:p-6">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Profile Settings</h2>
 
-                <div class="grid lg:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">Personal Information</h3>
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                <input type="text" value="Sarah Johnson" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <input type="text" value="Sarah Johnson" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 message-input-mobile">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" value="sarah.johnson@example.com" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <input type="email" value="sarah.johnson@example.com" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 message-input-mobile">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                <input type="tel" value="+1 (555) 123-4567" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <input type="tel" value="+1 (555) 123-4567" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 message-input-mobile">
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Notification Preferences</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Message Preferences</h3>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-700">Email Notifications</span>
+                                <span class="text-gray-700 text-sm md:text-base">Message Notifications</span>
                                 <input type="checkbox" checked class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-700">SMS Notifications</span>
+                                <span class="text-gray-700 text-sm md:text-base">Sound Alerts</span>
                                 <input type="checkbox" checked class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-700">Daily Reminders</span>
+                                <span class="text-gray-700 text-sm md:text-base">Auto-read Messages</span>
                                 <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-700">New Audio Alerts</span>
+                                <span class="text-gray-700 text-sm md:text-base">Show Online Status</span>
                                 <input type="checkbox" checked class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
                             </div>
                         </div>
 
                         <div class="mt-6">
-                            <button class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
+                            <button class="w-full bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors touch-button">
                                 Save Changes
                             </button>
                         </div>
@@ -442,11 +709,36 @@
         </section>
     </main>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="flex">
+            <a href="#dashboard" class="mobile-nav-item active" data-section="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#library" class="mobile-nav-item" data-section="library">
+                <i class="fas fa-music"></i>
+                <span>Library</span>
+            </a>
+            <a href="#messages" class="mobile-nav-item" data-section="messages">
+                <i class="fas fa-comments"></i>
+                <span>Messages</span>
+                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">2</span>
+            </a>
+            <a href="#profile" class="mobile-nav-item" data-section="profile">
+                <i class="fas fa-user-cog"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </nav>
+
     <script>
         // Navigation functionality
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
         const pageTitle = document.getElementById('pageTitle');
+        const mobilePageTitle = document.getElementById('mobilePageTitle');
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('mainContent');
         const openSidebarBtn = document.getElementById('openSidebar');
@@ -460,7 +752,7 @@
                 targetSection.classList.remove('hidden');
             }
 
-            // Update navigation active state
+            // Update desktop navigation active state
             navLinks.forEach(link => {
                 link.classList.remove('bg-purple-100', 'text-purple-700');
                 link.classList.add('text-gray-600', 'hover:bg-gray-100');
@@ -472,17 +764,28 @@
                 activeLink.classList.add('bg-purple-100', 'text-purple-700');
             }
 
-            // Update page title
+            // Update mobile navigation active state
+            mobileNavItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            const activeMobileItem = document.querySelector(`[data-section="${sectionId}"]`);
+            if (activeMobileItem) {
+                activeMobileItem.classList.add('active');
+            }
+
+            // Update page titles
             const titles = {
                 'dashboard': 'Dashboard',
                 'library': 'Audio Library',
-                'notifications': 'Notifications',
+                'messages': 'Messages',
                 'profile': 'Profile Settings'
             };
             pageTitle.textContent = titles[sectionId] || 'Dashboard';
+            mobilePageTitle.textContent = titles[sectionId] || 'Dashboard';
         }
 
-        // Navigation click handlers
+        // Desktop navigation click handlers
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -491,14 +794,27 @@
             });
         });
 
-        // Mobile sidebar toggle
-        openSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.remove('collapsed');
+        // Mobile navigation click handlers
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = item.getAttribute('data-section');
+                showSection(sectionId);
+            });
         });
 
-        closeSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.add('collapsed');
-        });
+        // Mobile sidebar toggle
+        if (openSidebarBtn) {
+            openSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.remove('collapsed');
+            });
+        }
+
+        if (closeSidebarBtn) {
+            closeSidebarBtn.addEventListener('click', () => {
+                sidebar.classList.add('collapsed');
+            });
+        }
 
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
@@ -506,6 +822,87 @@
                 !sidebar.contains(e.target) &&
                 !openSidebarBtn.contains(e.target)) {
                 sidebar.classList.add('collapsed');
+            }
+        });
+
+        // Message functionality
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const chatMessages = document.getElementById('chatMessages');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        function addMessage(text, isSent = true) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex items-start space-x-2 ${isSent ? 'justify-end' : ''}`;
+            
+            const messageBubble = document.createElement('div');
+            messageBubble.className = `message-bubble ${isSent ? 'message-sent' : 'message-received'} rounded-lg p-2 md:p-3`;
+            
+            const messageText = document.createElement('p');
+            messageText.className = 'text-xs md:text-sm';
+            messageText.textContent = text;
+            
+            const messageTime = document.createElement('p');
+            messageTime.className = `text-xs mt-1 ${isSent ? 'text-blue-100' : 'text-gray-500'}`;
+            messageTime.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            messageBubble.appendChild(messageText);
+            messageBubble.appendChild(messageTime);
+            
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = `w-6 h-6 md:w-8 md:h-8 ${isSent ? 'bg-purple-200' : 'bg-blue-200'} rounded-full flex items-center justify-center flex-shrink-0`;
+            
+            const avatarIcon = document.createElement('i');
+            avatarIcon.className = `fas ${isSent ? 'fa-user text-purple-600' : 'fa-user-md text-blue-600'} text-xs md:text-sm`;
+            
+            avatarDiv.appendChild(avatarIcon);
+            
+            if (isSent) {
+                messageDiv.appendChild(messageBubble);
+                messageDiv.appendChild(avatarDiv);
+            } else {
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(messageBubble);
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                messageInput.value = '';
+                
+                // Show typing indicator
+                typingIndicator.classList.remove('hidden');
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simulate response after 2 seconds
+                setTimeout(() => {
+                    typingIndicator.classList.add('hidden');
+                    addMessage("Thanks for your message! I'll get back to you soon.", false);
+                }, 2000);
+            }
+        }
+
+        if (sendButton) {
+            sendButton.addEventListener('click', sendMessage);
+        }
+        
+        if (messageInput) {
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                sidebar.classList.remove('collapsed');
             }
         });
 
